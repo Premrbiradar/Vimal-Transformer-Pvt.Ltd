@@ -1,10 +1,13 @@
+/* Navbar Background with Gradient */
 .navbar {
-  background: #0f172a;
+  background: linear-gradient(90deg, #0f172a99, #1e293b);
   color: white;
   padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
 .navbar-container {
@@ -15,23 +18,50 @@
   align-items: center;
 }
 
+/* Logo Animation */
 .logo {
-  font-size: 20px;
+  font-size: 22px;
+  
   font-weight: bold;
   color: #facc15;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Nav Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 
 .nav-links li a {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  transition: 0.3s;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline effect */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #facc15;
+  left: 0;
+  bottom: -5px;
+  transition: 0.4s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
 }
 
 .nav-links li a:hover {
@@ -42,31 +72,89 @@
   color: #facc15;
 }
 
-.menu-icon {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+/* Special Button Style (Service Request) */
+.nav-links li:last-child a {
+  background: #facc15;
+  color: #0f172a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s ease;
 }
 
-/* Responsive */
+.nav-links li:last-child a:hover {
+  background: white;
+  color: #0f172a;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: rotate(90deg);
+}
+
+/* Responsive Animation */
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 65px;
+    top: 70px;
     left: 0;
     width: 100%;
     background: #1e293b;
     flex-direction: column;
     align-items: center;
-    display: none;
+    gap: 20px;
     padding: 20px 0;
+    transform: translateY(-150%);
+    transition: transform 0.4s ease-in-out;
   }
 
   .nav-links.active {
-    display: flex;
+    transform: translateY(0);
   }
 
   .menu-icon {
     display: block;
   }
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 45px;
+  width: 45px;              /* equal height & width for circle */
+  object-fit: cover;        /* image stretch nahi hoga */
+  border-radius: 50%;       /* circle shape */
+  border: 1px solid #9b0808;
+  padding: 3px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px #800303;
+}
+
+
+
+
+.navbar {
+  position: absolute;   /* ya fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+
+  z-index: 1000;   /* image ke upar rahe */
 }
