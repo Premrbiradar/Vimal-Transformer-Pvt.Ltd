@@ -1,15 +1,13 @@
+import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-import { BrowserRouter } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-// import AppRoutes from "./routes/AppRoutes";
+import AppRoutes from "./routes/App.Routes";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
-      <Home/>
-      {/* <AppRoutes /> */}
-    </BrowserRouter>
+      <AppRoutes />
+    </Router>
   );
 }
 

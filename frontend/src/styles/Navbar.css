@@ -1,62 +1,90 @@
-/* Navbar Background with Gradient */
+
+
+/* ===== NAVBAR ===== */
 .navbar {
-  background: linear-gradient(90deg, #0f172a99, #1e293b);
-  color: white;
-  padding: 15px 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  background: #ffffff;  /* Pure white */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
 }
 
 .navbar-container {
   width: 90%;
   margin: auto;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo Animation */
+/* ===== LOGO ===== */
 .logo {
-  font-size: 22px;
-  
-  font-weight: bold;
-  color: #facc15;
+  font-size: 28px;   /* Bigger */
+  font-weight: 800;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.logo:hover {
-  transform: scale(1.05);
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #0f172a;   /* Dark text */
+  transition: 0.3s ease;
 }
 
-/* Nav Links */
+.logo a:hover {
+  color: #0ea5e9;
+}
+
+.logo-img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #0ea5e9;
+  padding: 3px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+}
+
+/* ===== NAV LINKS ===== */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 40px;   /* More spacing */
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: white;
-  font-weight: 500;
+  color: #0f172a;   /* Dark text for white bg */
+  font-weight: 600;
+  font-size: 18px;  /* Bigger font */
   position: relative;
-  transition: color 0.3s ease;
+  transition: 0.3s ease;
 }
 
-/* Animated underline effect */
+/* Underline animation */
 .nav-links li a::after {
   content: "";
   position: absolute;
   width: 0%;
-  height: 2px;
-  background: #facc15;
+  height: 3px;
+  background: #0ea5e9;
   left: 0;
-  bottom: -5px;
+  bottom: -6px;
   transition: 0.4s ease;
 }
 
@@ -65,51 +93,49 @@
 }
 
 .nav-links li a:hover {
-  color: #facc15;
+  color: #0ea5e9;
 }
 
+/* Active Link */
 .nav-links .active {
-  color: #facc15;
+  color: #0ea5e9;
 }
 
-/* Special Button Style (Service Request) */
+/* Special Button */
 .nav-links li:last-child a {
-  background: #facc15;
-  color: #0f172a;
-  padding: 6px 14px;
-  border-radius: 20px;
+  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 17px;
   transition: 0.3s ease;
 }
 
 .nav-links li:last-child a:hover {
-  background: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.4);
+}
+
+/* ===== MOBILE ===== */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
   color: #0f172a;
 }
 
-/* Menu Icon */
-.menu-icon {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.menu-icon:hover {
-  transform: rotate(90deg);
-}
-
-/* Responsive Animation */
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: 5rem;
     left: 0;
     width: 100%;
-    background: #1e293b;
+    background: #ffffff;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    gap: 25px;
+    padding: 25px 0;
     transform: translateY(-150%);
     transition: transform 0.4s ease-in-out;
   }
@@ -121,40 +147,4 @@
   .menu-icon {
     display: block;
   }
-}
-
-.logo a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.logo-img {
-  height: 45px;
-  width: 45px;              /* equal height & width for circle */
-  object-fit: cover;        /* image stretch nahi hoga */
-  border-radius: 50%;       /* circle shape */
-  border: 1px solid #9b0808;
-  padding: 3px;
-  background: white;
-  transition: all 0.3s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 12px #800303;
-}
-
-
-
-
-.navbar {
-  position: absolute;   /* ya fixed */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 6rem;
-
-  z-index: 1000;   /* image ke upar rahe */
 }
